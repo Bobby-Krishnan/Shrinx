@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.bin
+*.pth
+*.tar.gz
+*.zip
+models/
+env/
+.vscode/
+.DS_Store
