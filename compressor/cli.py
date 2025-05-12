@@ -8,6 +8,7 @@ from .compressor import compress_text, load_config
 from .topic_classifier import load_topic_classifier, classify_topic
 
 def run_compression(input_file, output_file, use_wizardlm=True):
+    print(f"[INFO] Starting compression with input: {input_file} and output: {output_file}")
     temp_jsonl = "temp_input.jsonl"
     print(f"[INFO] Normalizing input file: {input_file} -> {temp_jsonl}")
     normalize_to_jsonl(input_file, temp_jsonl)
@@ -42,3 +43,12 @@ def run_compression(input_file, output_file, use_wizardlm=True):
 
     os.remove(temp_jsonl)
     print(f"[INFO] Compression completed. Output saved to {output_file}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Token Compression CLI Tool")
+    parser.add_argument("input", help="Path to input JSON file")
+    parser.add_argument("--output", help="Path to output compressed JSON file", required=True)
+    parser.add_argument("--use_wizardlm", action="store_true", help="Use WizardLM for compression")
+
+    args = parser.parse_args()
+    run_compression(args.input, args.output, args.use_wizardlm)
