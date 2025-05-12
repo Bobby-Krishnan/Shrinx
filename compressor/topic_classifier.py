@@ -2,7 +2,6 @@ import os
 import json
 
 def load_topic_classifier():
-    # Automatically calculate the absolute path to config.json
     config_path = os.path.join(os.path.dirname(__file__), "../config.json")
     if not os.path.exists(config_path):
         raise FileNotFoundError(f"Configuration file not found: {config_path}")
@@ -11,3 +10,8 @@ def load_topic_classifier():
         config = json.load(file)
     
     return config
+
+def classify_topic(text, classifier):
+    # Placeholder for your topic classification logic
+    # Replace this with your real classification model
+    return "General"  # Example: Always returns "General" topic
