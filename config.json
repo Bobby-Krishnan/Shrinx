@@ -1,3 +1,19 @@
 {
-    "model_type": "llama"
+  "model": {
+    "use_wizardlm": true,
+    "wizardlm_binary": "./llama.cpp/main",  // or your full path to llama-cli
+    "wizardlm_model_path": "./models/wizardlm-2-7b.gguf",
+    "hf_summarizer": "facebook/bart-large-cnn"
+  },
+  "compression": {
+    "max_ratio": 1.0,        // Never exceed original tokens
+    "min_ratio": 0.1         // At least 10% of original tokens
+  },
+  "metadata": {
+    "topic_keywords": {
+      "entropy": ["entropy", "disorder"],
+      "thermodynamics": ["thermodynamics", "second law"]
+    }
+  }
 }
+

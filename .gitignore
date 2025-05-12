@@ -1,10 +1,58 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.venv
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+*.out
+*.err
+
+# Models & Large Files
+models/
+*.gguf
 *.bin
 *.pth
 *.tar.gz
 *.zip
-models/
-env/
+
+# Local WizardLM and Model Caches
+llama.cpp/
+temp_input.jsonl
+*.tmp
+compressed_output.jsonl
+
+# Virtual Environments
+venv/
+.env/
+.idea/
+
+# IDE Specific
 .vscode/
-.DS_Store
+.idea/
+*.sublime-workspace
+*.sublime-project
+
