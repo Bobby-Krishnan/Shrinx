@@ -1,19 +1,13 @@
 {
   "model": {
     "use_wizardlm": true,
-    "wizardlm_binary": "./llama.cpp/main", 
+    "wizardlm_binary": "./llama.cpp/main",
     "wizardlm_model_path": "./models/wizardlm-2-7b.gguf",
-    "hf_summarizer": "facebook/bart-large-cnn"
+    "hf_summarizer": "facebook/bart-large-cnn",
+    "topic_classifier": "valurank/distilroberta-topic-classification"
   },
   "compression": {
-    "max_ratio": 1.0,      
-    "min_ratio": 0.1       
-  },
-  "metadata": {
-    "topic_keywords": {
-      "entropy": ["entropy", "disorder"],
-      "thermodynamics": ["thermodynamics", "second law"]
-    }
+    "max_ratio": 1.0,
+    "min_ratio": 0.1
   }
 }
-
