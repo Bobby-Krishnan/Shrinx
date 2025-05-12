@@ -3,15 +3,15 @@ import json
 from transformers import pipeline
 import os
 
-
+# Load config and models globally (persistent)
 def load_config():
-    # Always find the config.json in the root of the project
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../config.json")
     with open(config_path, "r") as file:
         return json.load(file)
 
 config = load_config()
 summarizer = pipeline("summarization", model=config["model"]["hf_summarizer"])
+topic_classifier = None  # Only loaded if needed for topics
 
 def compress_with_wizardlm(text: str, max_tokens: int) -> str:
     cmd = [
@@ -43,4 +43,3 @@ def compress_text(text: str, use_wizardlm: bool = True) -> str:
             print("Falling back to Hugging Face for compression.")
     
     return compress_with_hf(text, max_tokens)
-
