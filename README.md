@@ -27,7 +27,7 @@ source venv/bin/activate
 pip install -e .
 ```
 
-## 📥 Supported Input Format
+##  Supported Input Format
 
 Shrinx accepts `.json` files that are either:
 
@@ -46,4 +46,26 @@ supported_input:
               content: Entropy is disorder in a system.
         - type: object
           description: A single object (wrapped internally into one-line JSONL)
+```
+
+```markdown
+##  Output Format
+
+The output is a `.jsonl` file where each line is a compressed, token-reduced message with metadata:
+
+```yaml
+output_format:
+  type: jsonl
+  description: Each line is a compressed message with metadata
+  example:
+    - role: user
+      content: What is entropy?
+      topic: Science
+      type: user
+      turn: 1
+    - role: assistant
+      content: Entropy is system disorder.
+      topic: Science
+      type: assistant
+      turn: 2
 
