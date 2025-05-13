@@ -29,10 +29,10 @@ def print_telemetry():
     else:
         reduction_percent = 0.0
 
-    print("\n Compression Telemetry")
-    print(f" Original Tokens:    {original_token_total}")
-    print(f"  Compressed Tokens:  {compressed_token_total}")
-    print(f" Tokens Saved:       {tokens_saved} ({reduction_percent:.2f}%)")
+    print("\n📊 Compression Telemetry")
+    print(f"📝 Original Tokens:    {original_token_total}")
+    print(f"✂️  Compressed Tokens:  {compressed_token_total}")
+    print(f"💡 Tokens Saved:       {tokens_saved} ({reduction_percent:.2f}%)")
 
 def compress_with_wizardlm(text: str, max_tokens: int) -> str:
     cmd = [
@@ -51,15 +51,41 @@ def compress_with_wizardlm(text: str, max_tokens: int) -> str:
         return None
 
 def compress_with_hf(text: str, max_tokens: int) -> str:
-    return summarizer(text, max_length=max_tokens, min_length=int(max_tokens * 0.1))[0]["summary_text"]
+    if len(text.strip()) == 0:
+        return text
+
+    original_tokens = count_tokens(text)
+
+    # Skip compression for very short inputs
+    if original_tokens < 20:
+        return text
+
+    # Calculate compression target (force down to ~40%)
+    target_tokens = max(int(original_tokens * 0.4), 10)
+    min_target = max(int(target_tokens * 0.5), 5)
+
+    try:
+        summary = summarizer(
+            text,
+            max_length=target_tokens,
+            min_length=min_target,
+            do_sample=False
+        )
+        return summary[0]["summary_text"]
+    except Exception as e:
+        print(f"[ERROR] Hugging Face compression failed: {e}")
+        return text
 
 def compress_text(text: str, use_wizardlm: bool = True) -> str:
     global original_token_total, compressed_token_total
 
     original_tokens = count_tokens(text)
     original_token_total += original_tokens
+
+    # Set compression budget up front
     max_tokens = original_tokens
 
+    # Try WizardLM first
     if use_wizardlm:
         compressed = compress_with_wizardlm(text, max_tokens)
         if compressed:
@@ -68,6 +94,7 @@ def compress_text(text: str, use_wizardlm: bool = True) -> str:
         else:
             print("Falling back to Hugging Face for compression.")
 
+    # Use Hugging Face fallback
     compressed = compress_with_hf(text, max_tokens)
     compressed_token_total += count_tokens(compressed)
     return compressed
