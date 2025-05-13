@@ -25,8 +25,12 @@ cd shrinx
 python3 -m venv venv
 source venv/bin/activate
 pip install -e .
-```
 
+## 📥 Supported Input Format
+
+Shrinx accepts `.json` files that are either:
+
+```yaml
 supported_input:
   formats:
     - type: json
@@ -34,14 +38,11 @@ supported_input:
       accepted_structures:
         - type: array
           description: An array of messages
-          example: |
-            ```json
-            [
-              {"role": "user", "content": "What is entropy?"},
-              {"role": "assistant", "content": "Entropy is disorder in a system."}
-            ]
-            ```
+          example:
+            - role: user
+              content: What is entropy?
+            - role: assistant
+              content: Entropy is disorder in a system.
         - type: object
           description: A single object (wrapped internally into one-line JSONL)
-
 
