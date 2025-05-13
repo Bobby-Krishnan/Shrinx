@@ -1,6 +1,6 @@
 #  Shrinx — Token Compression CLI Tool
 
-Shrinx is a CLI tool for compressing natural language logs or datasets to reduce token count — optimized for large language model (LLM) pipelines. It normalizes JSON files, compresses messages via Hugging Face summarization (or WizardLM offline), and outputs compressed `.jsonl` files with topic tagging and full telemetry.
+Shrinx is a Python-based command-line tool for compressing token-heavy JSON chat logs and datasets without losing semantic meaning. Optimized for large language model (LLM) pipelines, it helps reduce token counts to lower costs, improve latency, and increase API efficiency when working with models like OpenAI, Claude, or WizardLM. Shrinx normalizes `.json` files into `.jsonl`, compresses messages using Hugging Face summarization (or offline WizardLM if available), and adds topic classification with full compression telemetry — making it ideal for streamlining LLM-based applications at scale.
 
 ---
 
