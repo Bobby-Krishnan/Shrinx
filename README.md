@@ -48,7 +48,6 @@ supported_input:
           description: A single object (wrapped internally into one-line JSONL)
 ```
 
-```markdown
 ##  Output Format
 
 The output is a `.jsonl` file where each line is a compressed, token-reduced message with metadata:
