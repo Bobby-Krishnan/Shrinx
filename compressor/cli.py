@@ -4,7 +4,7 @@ import argparse
 from .parser import normalize_to_jsonl
 from .metadata import detect_type
 from .tokenizer import count_tokens
-from .compressor import compress_text, load_config
+from .compressor import compress_text, load_config, print_telemetry
 from .topic_classifier import load_topic_classifier, classify_topic
 
 def run_compression(input_file, output_file, use_wizardlm=True):
@@ -14,9 +14,9 @@ def run_compression(input_file, output_file, use_wizardlm=True):
     normalize_to_jsonl(input_file, temp_jsonl)
     
     topic_classifier = load_topic_classifier()
-    turn = 1
     print(f"[INFO] Loading topic classifier...")
 
+    turn = 1
     with open(temp_jsonl, 'r') as infile, open(output_file, 'w') as outfile:
         for line in infile:
             print(f"[DEBUG] Processing line: {line.strip()}")
@@ -43,6 +43,9 @@ def run_compression(input_file, output_file, use_wizardlm=True):
 
     os.remove(temp_jsonl)
     print(f"[INFO] Compression completed. Output saved to {output_file}")
+
+    # Print final token telemetry
+    print_telemetry()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Token Compression CLI Tool")
