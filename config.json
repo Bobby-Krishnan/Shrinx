@@ -1,8 +1,8 @@
 {
   "model": {
     "use_wizardlm": true,
-    "wizardlm_binary": "./llama.cpp/main",
-    "wizardlm_model_path": "./models/wizardlm-2-7b.gguf",
+    "wizardlm_binary": "/Users/bobbykrishnan/Shrinx/llama.cpp/build/bin/main",
+    "wizardlm_model_path": "/Users/bobbykrishnan/Shrinx/models/wizardlm-2-7b.gguf",
     "hf_summarizer": "facebook/bart-large-cnn",
     "topic_classifier": "valurank/distilroberta-topic-classification"
   },
