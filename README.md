@@ -68,6 +68,12 @@ output_format:
       type: assistant
       turn: 2
 ```
+##   Usage
+Once installed, you can run the tool from your terminal using:
+
+```bash
+shrinx sample.json --output compressed_output.jsonl --use_wizardlm
+```
 ##  Compression Telemetry
 
 Shrinx prints a summary after every run to show the token reduction achieved:
