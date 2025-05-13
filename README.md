@@ -25,5 +25,23 @@ cd shrinx
 python3 -m venv venv
 source venv/bin/activate
 pip install -e .
+```
+
+supported_input:
+  formats:
+    - type: json
+      description: Accepts a .json file containing either:
+      accepted_structures:
+        - type: array
+          description: An array of messages
+          example: |
+            ```json
+            [
+              {"role": "user", "content": "What is entropy?"},
+              {"role": "assistant", "content": "Entropy is disorder in a system."}
+            ]
+            ```
+        - type: object
+          description: A single object (wrapped internally into one-line JSONL)
 
 
