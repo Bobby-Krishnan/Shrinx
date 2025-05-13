@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+setup.py
+compressor/__init__.py
+compressor/cli.py
+compressor/compressor.py
+compressor/metadata.py
+compressor/parser.py
+compressor/tokenizer.py
+compressor/topic_classifier.py
+shrinx.egg-info/PKG-INFO
+shrinx.egg-info/SOURCES.txt
+shrinx.egg-info/dependency_links.txt
+shrinx.egg-info/entry_points.txt
+shrinx.egg-info/requires.txt
+shrinx.egg-info/top_level.txt

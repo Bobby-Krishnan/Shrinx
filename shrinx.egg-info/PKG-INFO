@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: shrinx
+Version: 0.1.0
+Summary: A CLI tool for compressing natural language to save tokens in LLM pipelines.
+Author: Your Name
+Requires-Python: >=3.8
+License-File: LICENSE.txt
+Requires-Dist: transformers
+Requires-Dist: torch
+Requires-Dist: tqdm
+Requires-Dist: nltk
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

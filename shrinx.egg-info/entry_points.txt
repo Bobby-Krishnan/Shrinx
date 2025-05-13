@@ -1,0 +1,2 @@
+[console_scripts]
+shrinx = compressor.cli:main
