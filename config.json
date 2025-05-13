@@ -3,7 +3,7 @@
     "use_wizardlm": true,
     "wizardlm_binary": "/Users/bobbykrishnan/Shrinx/llama.cpp/build/bin/main",
     "wizardlm_model_path": "/Users/bobbykrishnan/Shrinx/models/wizardlm-2-7b.gguf",
-    "hf_summarizer": "facebook/bart-large-cnn",
+    "hf_summarizer": "sshleifer/distilbart-xsum-6-6",
     "topic_classifier": "valurank/distilroberta-topic-classification"
   },
   "compression": {

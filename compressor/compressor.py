@@ -29,10 +29,10 @@ def print_telemetry():
     else:
         reduction_percent = 0.0
 
-    print("\n📊 Compression Telemetry")
-    print(f"📝 Original Tokens:    {original_token_total}")
-    print(f"✂️  Compressed Tokens:  {compressed_token_total}")
-    print(f"💡 Tokens Saved:       {tokens_saved} ({reduction_percent:.2f}%)")
+    print("\n Compression Telemetry")
+    print(f" Original Tokens:    {original_token_total}")
+    print(f"  Compressed Tokens:  {compressed_token_total}")
+    print(f" Tokens Saved:       {tokens_saved} ({reduction_percent:.2f}%)")
 
 def compress_with_wizardlm(text: str, max_tokens: int) -> str:
     cmd = [
