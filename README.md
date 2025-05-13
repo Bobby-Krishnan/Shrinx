@@ -67,4 +67,20 @@ output_format:
       topic: Science
       type: assistant
       turn: 2
+```
+##  Compression Telemetry
+
+Shrinx prints a summary after every run to show the token reduction achieved:
+
+```yaml
+telemetry:
+  original_tokens: 14123
+  compressed_tokens: 6009
+  tokens_saved: 8114
+  savings_percent: 57.45
+  sample_output:
+    - message: Original Tokens: 14123
+    - message: Compressed Tokens: 6009
+    - message: Tokens Saved: 8114 (57.45%)
+```
 
