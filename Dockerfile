@@ -1,0 +1,23 @@
+# Start from a minimal Python base image
+FROM python:3.10-slim
+
+# Prevents Python from writing .pyc files
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Create working directory
+WORKDIR /app
+
+# Install system dependencies (e.g., git)
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Copy project files into container
+COPY . /app
+
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -e .
+
+# Default command for testing
+CMD ["shrinx", "--help"]
+
