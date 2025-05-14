@@ -1,0 +1,5 @@
+[
+  {"role": "user", "content": "Please explain what entropy means in basic terms."},
+  {"role": "assistant", "content": "Entropy is a measure of disorder or randomness in a system."}
+]
+
