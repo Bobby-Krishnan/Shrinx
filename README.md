@@ -75,6 +75,18 @@ Once installed, you can run the tool from your terminal using:
 ```bash
 shrinx sample.json --output compressed_output.jsonl --use_wizardlm
 ```
+## Run with Docker
+
+Build the image:
+
+```bash
+docker build -t shrinx .
+```
+## Run Shrinx on a local .json file
+```bash
+docker run --rm -v $(pwd):/app shrinx sample.json --output compressed_output.jsonl
+```
+
 ##  Compression Telemetry
 
 Shrinx prints a summary after every run to show the token reduction achieved:
